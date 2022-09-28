@@ -2,7 +2,7 @@
 
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function App() {
 
@@ -113,6 +113,8 @@ function App() {
         //조건식 ? 참일 떄 실행되는 코드 : 거짓일때 실행되는 코드 --> 삼항연산자
         modal == true ? <Modal 글제목={글제목} 글수정={firChange} title={title}></Modal> : null
       }
+
+      <Moda12 />
     </div>
   );
   
@@ -127,6 +129,25 @@ function Modal(props) {
       <button onClick={props.글수정}>글수정</button>
     </div>
   );
+}
+
+class Moda12 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'kim',
+      age : 20
+    }
+  }
+  render() {
+    return (
+      <div>안녕 {this.state.age}
+        <button onClick={() => {
+          this.setState({age : 21})
+        }}>버튼</button>
+      </div>
+    )
+  }
 }
 
 export default App;
